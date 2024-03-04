@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       return res.status(401).json({ error: 'Identifiants invalides' });
     }
-    const token = jwt.sign({ id: user._id }, 'azerty');
+    const token = jwt.sign({ id: user._id }, 'Kb98Noe+9Z1hcu@N)Cr%', { expiresIn: '24h' });
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: 'Erreur de connexion' });
