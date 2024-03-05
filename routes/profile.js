@@ -16,7 +16,8 @@ router.get('/', authenticateToken, async (req, res) => {
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
+  const token = authHeader && authHeader.split(' ')[1]; // récupérer le token du header à partir de la chaine autorisation
+  // depuis l'indice 1 aprés l'espace
   if (token == null) return res.status(401).json({ error: 'Non autorisé' });
 
   jwt.verify(token, 'Kb98Noe+9Z1hcu@N)Cr%', (err, user) => {
